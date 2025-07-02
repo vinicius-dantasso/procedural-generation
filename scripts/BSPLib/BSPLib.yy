@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"BSPLib",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"BSPLib",
+  "parent":{
+    "name":"BSP",
+    "path":"folders/Scripts/BSP.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

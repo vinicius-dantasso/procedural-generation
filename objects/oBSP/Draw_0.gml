@@ -1,0 +1,2 @@
+
+draw_node(root);
