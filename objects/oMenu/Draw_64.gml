@@ -24,23 +24,10 @@ for(var _i=0; _i<_size; _i++) {
 	var _x2 = 150 + _wStr;
 	var _y2 = hDisplay/2 + _hStr/2 + (_hStr*_i) - _spacing;
 	
-	_scale = 2;
-	if(point_in_rectangle(_mx,_my,_x1,_y1,_x2,_y2)) {
-		_scale = 2.4;
-		
-		if(_click) {
-			switch(options[_i]) {
-				case options[0]: showPerlinOp = !showPerlinOp; break;
-				case options[1]: showBSPOp = !showBSPOp; break;
-			}
-		}
-	}
-	
 	perlin_options();
 	
 	bsp_options();	
 	
-	//draw_rectangle(_x1, _y1, _x2, _y2, true);
 	
 	draw_text_transformed_color(150-3,(hDisplay/2)+(_hStr*_i)-_spacing,options[_i],_scale,_scale,1,c_black,c_black,c_black,c_black,1);
 	draw_text_transformed(150,(hDisplay/2)+(_hStr*_i)-_spacing,options[_i],_scale,_scale,0);
@@ -72,7 +59,8 @@ function perlin_options() {
 		
 		_scale = 2;
 		if(point_in_rectangle(_mx,_my,_x1,_y1,_x2,_y2)) {
-			_scale = 2.4;
+			
+			if(perlinOp[_i] == perlinOp[3]) _scale = 2.4;
 			
 			if(_click) {
 				switch(perlinOp[_i]) {
@@ -85,9 +73,8 @@ function perlin_options() {
 					break;	
 				}
 			}
+			
 		}
-		
-		//draw_rectangle(_x1, _y1, _x2, _y2, true);
 		
 		draw_text_transformed_color(420-3,(hDisplay/2)+(_hStr*_i)- (_spacing - _i*_margin),perlinOp[_i],_scale,_scale,1,c_black,c_black,c_black,c_black,1);
 		draw_text_transformed(420,(hDisplay/2)+(_hStr*_i)- (_spacing - _i*_margin),perlinOp[_i],_scale,_scale,0);
@@ -120,7 +107,8 @@ function bsp_options() {
 		
 		_scale = 2;
 		if(point_in_rectangle(_mx,_my,_x1,_y1,_x2,_y2)) {
-			_scale = 2.4;
+			
+			if(bspOp[_i] == bspOp[4]) _scale = 2.4;
 			
 			if(_click) {
 				switch(bspOp[_i]) {
@@ -133,9 +121,8 @@ function bsp_options() {
 					break;
 				}
 			}
+			
 		}
-		
-		//draw_rectangle(_x1, _y1, _x2, _y2, true);
 		
 		draw_text_transformed_color(420-3,(hDisplay/2)+(_hStr*_i)- (_spacing - _i*25),bspOp[_i],_scale,_scale,1,c_black,c_black,c_black,c_black,1);
 		draw_text_transformed(420,(hDisplay/2)+(_hStr*_i)- (_spacing - _i*25),bspOp[_i],_scale,_scale,0);
@@ -143,6 +130,8 @@ function bsp_options() {
 	}
 	
 }
+
+if(!instance_exists(oPerlin) && !instance_exists(oBSP)) draw_sprite(sPlace,0, (wDisplay * .5) + 350, hDisplay * .5);
 
 draw_set_font(-1);
 draw_set_halign(-1);

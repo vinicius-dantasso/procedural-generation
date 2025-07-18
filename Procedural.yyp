@@ -51,6 +51,7 @@
     {"id":{"name":"Globals","path":"scripts/Globals/Globals.yy",},},
     {"id":{"name":"PerlinLib","path":"scripts/PerlinLib/PerlinLib.yy",},},
     {"id":{"name":"Test","path":"scripts/Test/Test.yy",},},
+    {"id":{"name":"sPlace","path":"sprites/sPlace/sPlace.yy",},},
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},},
     {"id":{"name":"sSelector","path":"sprites/sSelector/sSelector.yy",},},
     {"id":{"name":"sSlider","path":"sprites/sSlider/sSlider.yy",},},

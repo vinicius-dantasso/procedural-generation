@@ -45,6 +45,23 @@ function split(_node, _depth) {
 	
 }
 
+function generate_rooms(_node) {
+	
+	if(_node.left != undefined && _node.right != undefined) {
+		generate_rooms(_node.left);
+		generate_rooms(_node.right);
+		return;
+	}
+	
+	var space_width = irandom_range(global.min_room_size, _node.width - global.margin * 2);
+	var space_height = irandom_range(global.min_room_size, _node.height - global.margin * 2);
+	var space_x = _node.x + global.margin + irandom(_node.width - space_width - global.margin * 2);
+	var space_y = _node.y + global.margin + irandom(_node.height - space_height - global.margin * 2);
+	
+	_node.space = new Room(space_x, space_y, space_width, space_height); 
+	
+}
+
 function connect_rooms(_node) {
 	
 	if (_node.left == undefined && _node.right == undefined) return;
@@ -63,10 +80,10 @@ function connect_rooms(_node) {
     var y2 = right_room.center_y;
 
     if (x1 == x2 || y1 == y2) {
-        // Alinhados em X ou Y → cria um corredor reto
+        // Alinhados em X ou Y -> cria um corredor reto
         array_push(_node.corridors, [x1, y1, x2, y2]);
     } else {
-        // Não alinhados → cria corredor em "L"
+        // Não alinhados -> cria corredor em "L"
         if (choose(true, false)) {
             array_push(_node.corridors, [x1, y1, x2, y1]);
             array_push(_node.corridors, [x2, y1, x2, y2]);
@@ -93,24 +110,6 @@ function get_rooms(_node) {
     return r_room;	
 }
 
-
-function generate_rooms(_node) {
-	
-	if(_node.left != undefined && _node.right != undefined) {
-		generate_rooms(_node.left);
-		generate_rooms(_node.right);
-		return;
-	}
-	
-	var space_width = irandom_range(global.min_room_size, _node.width - global.margin * 2);
-	var space_height = irandom_range(global.min_room_size, _node.height - global.margin * 2);
-	var space_x = _node.x + global.margin + irandom(_node.width - space_width - global.margin * 2);
-	var space_y = _node.y + global.margin + irandom(_node.height - space_height - global.margin * 2);
-	
-	_node.space = new Room(space_x, space_y, space_width, space_height); 
-	
-}
-
 function draw_node(_node) {
 	
 	//draw_set_color(c_green);
@@ -126,10 +125,6 @@ function draw_node(_node) {
 		var conn = _node.corridors[i];
 		draw_line_width(conn[0], conn[1], conn[2], conn[3], 3);
 	}
-	
-	/*var coords = string_concat(string(_node.x), ", ", string(_node.y));
-	draw_set_color(c_white);
-	draw_text(_node.x, _node.y, coords);*/
 	
 	if(_node.left != undefined && _node.right != undefined) {
 		draw_node(_node.left);

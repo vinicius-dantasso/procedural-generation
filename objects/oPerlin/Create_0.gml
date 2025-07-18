@@ -1,3 +1,5 @@
+random_set_seed(145789341)
+
 perlin_permut();
 
 perlin_surface = surface_create(display_get_gui_width(), display_get_gui_height());
@@ -23,22 +25,22 @@ for(var _y=0; _y<PMAP_H;_y++) {
 
 /*
 // Desenhar as bordas das células do noise
-draw_set_color(c_blue); // Cor das linhas de borda
+draw_set_color(c_orange); // Cor das linhas de borda
 draw_set_alpha(1); // Semi-transparente
 
 // Calcular quantas células do noise temos
-var cell_count_x = ceil(PMAP_W * SCALE);
-var cell_count_y = ceil(PMAP_H * SCALE);
+var cell_count_x = ceil(PMAP_W * global.scale);
+var cell_count_y = ceil(PMAP_H * global.scale);
 
 // Desenhar linhas verticais
 for (var i = 0; i <= cell_count_x; i++) {
-    var screen_x = (i / SCALE) * PTILE_SIZE;
+    var screen_x = (i / global.scale) * PTILE_SIZE;
     draw_line(screen_x, 0, screen_x, PMAP_H * PTILE_SIZE);
 }
 
 // Desenhar linhas horizontais
 for (var j = 0; j <= cell_count_y; j++) {
-    var screen_y = (j / SCALE) * PTILE_SIZE;
+    var screen_y = (j / global.scale) * PTILE_SIZE;
     draw_line(0, screen_y, PMAP_W * PTILE_SIZE, screen_y);
 }
 

@@ -18,7 +18,7 @@ function draw_slider() {
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
 	
-	draw_text(x + sprite_width + 20, y, string(show_value));
+	draw_text_transformed(x + sprite_width + 40, y, string(show_value), 1.8, 1.8, 0);
 	
 	draw_set_font(-1);
 	draw_set_halign(-1);

@@ -32,6 +32,10 @@ function perlin_grad(_hash,_x,_y) {
 	return (_u * _sign_u) + (_v * _sign_v);	
 }
 
+function normalize(_value) {
+	return (_value + 1) * 0.5;	
+}
+
 function perlin_noise(_x, _y) {
 	var _xi = floor(_x) & 255;
 	var _yi = floor(_y) & 255;
@@ -56,7 +60,7 @@ function perlin_noise(_x, _y) {
 	var _x2 = perlin_lerp(_grad3, _grad4, _u);
 	var _value = perlin_lerp(_x1, _x2, _v);
 	
-	return (_value + 1) / 2;
+	return normalize(_value);
 }
 
 function perlin_noise_with_octaves(_x, _y, _octaves, _persistence) {
