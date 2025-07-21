@@ -26,8 +26,7 @@ for(var _i=0; _i<_size; _i++) {
 	
 	perlin_options();
 	
-	bsp_options();	
-	
+	bsp_options();
 	
 	draw_text_transformed_color(150-3,(hDisplay/2)+(_hStr*_i)-_spacing,options[_i],_scale,_scale,1,c_black,c_black,c_black,c_black,1);
 	draw_text_transformed(150,(hDisplay/2)+(_hStr*_i)-_spacing,options[_i],_scale,_scale,0);
