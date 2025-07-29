@@ -43,7 +43,7 @@ Você pode utilizar este projeto de duas formas:
 
 ## Interface do Projeto
 
-![Interface do projeto](git-images/gif_interface.gif)
+![Interface do Projeto](git-images/gif_interface.gif)
 
 ## Objetivos Didáticos
 
